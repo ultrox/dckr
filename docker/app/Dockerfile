@@ -27,9 +27,9 @@ RUN apt-get update \
           && ln -sf /dev/stderr /var/log/nginx/error.log
 
 # override default nginx to be setup with php
-COPY default /etc/nginx/sites-available/default
+COPY ./sites-enabled/default /etc/nginx/sites-enabled/
 # make php not run like a dameon and write php to stdout/err
-COPY php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
+COPY ./php/php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
 
 EXPOSE 80
 
